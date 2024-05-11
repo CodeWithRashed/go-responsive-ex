@@ -3,7 +3,7 @@
   "displayName": "Go Responsive",
   "publisher": "DevRashed",
   "description": "Go Responsive is a Visual Studio Code extension that simplifies creating responsive CSS styles. Easily set maximum and minimum values for container sizes, then generate responsive font sizes, line heights, paddings, heights, widths, and clamp values with just a few clicks.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.89.0"
   },
@@ -18,30 +18,32 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "go-responsive.getFont",
-      "title": "Get Font"
-    },
-    {
-      "command": "go-responsive.getFontAndLineHeight",
-      "title": "Get Font Size And Line Hight"
-    },
-    {
-      "command": "go-responsive.getPadding",
-      "title": "Get Padding"
-    },
-    {
-      "command": "go-responsive.getHeightAndWidth",
-      "title": "Get Hight And Width"
-    },
-    {
-      "command": "go-responsive.updateContainerSize",
-      "title": "Update Saved Containers"
-    },
-    {
-      "command": "go-responsive.getGenericClamp",
-      "title": "Get Generic Size"
-    }]
+    "commands": [
+      {
+        "command": "go-responsive.getFont",
+        "title": "Get Font"
+      },
+      {
+        "command": "go-responsive.getFontAndLineHeight",
+        "title": "Get Font Size And Line Hight"
+      },
+      {
+        "command": "go-responsive.getPadding",
+        "title": "Get Padding"
+      },
+      {
+        "command": "go-responsive.getHeightAndWidth",
+        "title": "Get Hight And Width"
+      },
+      {
+        "command": "go-responsive.updateContainerSize",
+        "title": "Update Saved Containers"
+      },
+      {
+        "command": "go-responsive.getGenericClamp",
+        "title": "Get Generic Size"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
