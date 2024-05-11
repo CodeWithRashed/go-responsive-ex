@@ -1,0 +1,54 @@
+{
+  "name": "go-responsive",
+  "displayName": "Go Responsive",
+  "description": "Go Responsive is a Visual Studio Code extension that simplifies creating responsive CSS styles. Easily set maximum and minimum values for container sizes, then generate responsive font sizes, line heights, paddings, heights, widths, and clamp values with just a few clicks.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "go-responsive.getFont",
+      "title": "Get Font"
+    },
+    {
+      "command": "go-responsive.getFontAndLineHeight",
+      "title": "Get Font Size And Line Hight"
+    },
+    {
+      "command": "go-responsive.getPadding",
+      "title": "Get Padding"
+    },
+    {
+      "command": "go-responsive.getHeightAndWidth",
+      "title": "Get Hight And Width"
+    },
+    {
+      "command": "go-responsive.updateContainerSize",
+      "title": "Update Saved Containers"
+    },
+    {
+      "command": "go-responsive.getGenericClamp",
+      "title": "Get Generic Size"
+    }]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.89.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
