@@ -23,7 +23,7 @@ This extension requires no additional software and works seamlessly within VS Co
 - Currently, the extension relies on manual user input for container sizes and responsive behavior.
 
 ## Contributing
-We welcome contributions to improve this extension! Feel free to open pull requests or raise issues on the GitHub repository.
+You are welcome to improve this extension! Feel free to open pull requests or raise issues on the [GitHub repository](https://github.com/CodeWithRashed/go-responsive-ex)..
 
 ## Release Notes
 ### 1.0.0
