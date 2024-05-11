@@ -1,10 +1,15 @@
 {
   "name": "go-responsive",
   "displayName": "Go Responsive",
+  "publisher": "DevRashed",
   "description": "Go Responsive is a Visual Studio Code extension that simplifies creating responsive CSS styles. Easily set maximum and minimum values for container sizes, then generate responsive font sizes, line heights, paddings, heights, widths, and clamp values with just a few clicks.",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.89.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeWithRashed/go-responsive-ex"
   },
   "categories": [
     "Snippets"

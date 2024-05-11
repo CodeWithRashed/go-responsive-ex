@@ -5,7 +5,7 @@ const vscode = require("vscode");
  */
 function activate(context) {
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "go-responsive" is now active!');
+  // console.log('Congratulations, your extension "go-responsive" is now active!');
 
   //LOCAL STORAGE STATE
   const state = context.workspaceState;
