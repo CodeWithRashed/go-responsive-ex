@@ -30,5 +30,7 @@ You are welcome to improve this extension! Feel free to open pull requests or ra
 - Initial release with core functionalities for generating responsive font size, padding, height, and width.
 ### 1.0.1
 - Added Extension Icon.
+### 1.0.2
+- Added Responsive Line Height Feature.
 
 Enjoy creating responsive designs with Go Responsive!

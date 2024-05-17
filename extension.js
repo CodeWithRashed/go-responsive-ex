@@ -68,17 +68,14 @@ function activate(context) {
         return;
       }
 
-
-      const maxFontSizeInt = parseInt(userInput.maxFontSize)
-      const minFontSizeInt = parseInt(userInput.minFontSize)
+      const maxFontSizeInt = parseInt(userInput.maxFontSize);
+      const minFontSizeInt = parseInt(userInput.minFontSize);
 
       //CALCULATING THE FONT SIZE
-      const scalingFactorFontSize =(maxFontSizeInt - minFontSizeInt) / (maxContainer - minContainer);
+      const scalingFactorFontSize =
+        (maxFontSizeInt - minFontSizeInt) / (maxContainer - minContainer);
 
-        
       const fontSize = `font-size: clamp(${minFontSizeInt}px, calc(${scalingFactorFontSize} * (100vw - ${minContainer}px) + ${minFontSizeInt}px), ${maxFontSizeInt}px);`;
-
-
 
       //PASTING RESULT HERE
       editor.edit((editBuilder) => {
@@ -87,22 +84,12 @@ function activate(context) {
     }
   );
 
-
-  //GET FONT SIZE AND LINE HEIGHT
-  let getFontSizeAndLineHeight = vscode.commands.registerCommand(
-    "go-responsive.getFontAndLineHeight",
+  //GET LINE HEIGHT
+  let getLineHeight = vscode.commands.registerCommand(
+    "go-responsive.getLineHeight",
     async function () {
       // GETTING USER INPUT FOR MAX AND MIN FONT SIZE
       async function getUserInput() {
-        const maxFontSize = await vscode.window.showInputBox({
-          prompt: "Enter the maximum font size:",
-          placeHolder: "Maximum font size / Font size ..",
-        });
-
-        const minFontSize = await vscode.window.showInputBox({
-          prompt: "Enter the minimum font size:",
-          placeHolder: "Minimum font size / Font size for mobile",
-        });
         const maxLineHeight = await vscode.window.showInputBox({
           prompt: "Enter the maximum line height:",
           placeHolder: "Maximum line height / line height ..",
@@ -113,7 +100,7 @@ function activate(context) {
           placeHolder: "Minimum line height / line height for mobile",
         });
 
-        return { maxFontSize, minFontSize, maxLineHeight, minLineHeight };
+        return { maxLineHeight, minLineHeight };
       }
 
       //GETTING ACTIVE CURSOR LOCATION
@@ -134,28 +121,23 @@ function activate(context) {
       const userInput = await getUserInput();
 
       //SENDING WARNING IF ANY FONT SIZE IS NOT PROVIDED
-      if (!userInput.maxFontSize || !userInput.minFontSize) {
-        vscode.window.showErrorMessage("Font Size And Line Height Can't be empty.");
+      if (!userInput.maxLineHeight || !userInput.minLineHeight) {
+        vscode.window.showErrorMessage("Line Height Can't be empty.");
         return;
       }
 
-
-      const maxFontSizeInt = parseInt(userInput.maxFontSize)
-      const minFontSizeInt = parseInt(userInput.minFontSize)
-      const maxLineHeightInt = parseInt(userInput.maxLineHeight)
-      const minLineHeightInt = parseInt(userInput.minLineHeight)
+      const maxLineHeightInt = parseFloat(userInput.maxLineHeight);
+      const minLineHeightInt = parseFloat(userInput.minLineHeight);
 
       //CALCULATING THE FONT SIZE
-      const scalingFactorFontSize =(maxFontSizeInt - minFontSizeInt) / (maxContainer - minContainer);
-      const scalingFactorLineHeight =(maxLineHeightInt - minLineHeightInt) / (maxContainer - minContainer);
+      const scalingFactorLineHeight =
+        (maxLineHeightInt - minLineHeightInt) / (maxContainer - minContainer);
 
-        
-      const fontSize = `font-size: clamp(${minFontSizeInt}px, calc(${scalingFactorFontSize} * (100vw - ${minContainer}px) + ${minFontSizeInt}px), ${maxFontSizeInt}px);`;
+      console.log(maxLineHeightInt);
+      console.log(minLineHeightInt);
       const lineHeight = `line-height: clamp(${minLineHeightInt}px, calc(${scalingFactorLineHeight} * (100vw - ${minContainer}px) + ${minLineHeightInt}px), ${maxLineHeightInt}px);`;
 
-const result = `${fontSize}
-${lineHeight}
-`
+      const result = `${lineHeight}`;
 
       //PASTING RESULT HERE
       editor.edit((editBuilder) => {
@@ -304,7 +286,6 @@ ${widthResult}
     }
   );
 
-
   //GET GENERIC CLAMP DATA
   let getGenericClamp = vscode.commands.registerCommand(
     "go-responsive.getGenericClamp",
@@ -320,7 +301,6 @@ ${widthResult}
           prompt: "Enter the minimum size:",
           placeHolder: "Minimum size ..",
         });
-
 
         const maxGeneric = parseInt(maxGenericSizeString);
         const minGeneric = parseInt(minGenericSizeString);
@@ -409,7 +389,7 @@ ${widthResult}
   context.subscriptions.push(
     statusBarItem,
     getFontSize,
-    getFontSizeAndLineHeight,
+    getLineHeight,
     getPadding,
     getHeightAndWidth,
     getGenericClamp,

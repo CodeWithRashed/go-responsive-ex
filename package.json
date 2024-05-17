@@ -24,8 +24,8 @@
         "title": "Get Font"
       },
       {
-        "command": "go-responsive.getFontAndLineHeight",
-        "title": "Get Font Size And Line Hight"
+        "command": "go-responsive.getLineHeight",
+        "title": "Get Line Hight"
       },
       {
         "command": "go-responsive.getPadding",
